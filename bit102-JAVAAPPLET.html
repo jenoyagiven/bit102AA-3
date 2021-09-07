@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Applet</title>
+
+    <style>
+      body{
+        height: 50000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: absolute">
+      <video id="video" width="320" height="240">
+        <source src="smesh.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+      <br>
+      <button onclick="playVideo()" type="button">play</button>
+      <button onclick="pauseVideo()" type="button">pause</button>
+      <br />
+      <br />
+
+      <audio id="audio">
+        <source src="dog-barking.wav" type="audio/wav" />
+        Your browser does not support the audio element.
+      </audio>
+      <br />
+      <button onclick="playAudio()" type="button">play</button>
+      <button onclick="pauseAudio()" type="button">pause</button>
+      <br />
+      <br />
+      <button onclick="add_google_logo()">img</button>
+
+      <div id="body"></div>
+      <br>
+
+      <button onclick="timer()">click to and wait 3 second </button>
+      <button onclick="stopTimer()">stop timer</button>
+      <br><br><br>
+      <button onclick="lol()">Click me to scroll horizontally!</button>
+    </div>
+
+    <script>
+      var interval
+
+      var vid = document.getElementById("video");
+      function playVideo() {
+        vid.play();
+      }
+
+      function pauseVideo() {
+        vid.pause();
+      }
+      var audio = document.getElementById("audio");
+
+      function playAudio() {
+        audio.play();
+      }
+
+      function pauseAudio() {
+        audio.pause();
+      }
+
+      function add_google_logo() {
+        show_image(
+          "img.jpg",
+          200,
+          110,
+        );
+      }
+
+      function show_image(src, width, height) {
+        var img = document.createElement("img");
+        var body = document.getElementById("body");
+        img.src = src;
+        img.width = width;
+        img.height = height;
+        body.appendChild(img);
+      }
+
+      function timer() {
+        interval = setInterval(function() { alert("3 second later")}, 3000)
+      }
+
+      function stopTimer() {
+        clearInterval(interval)
+      }
+
+      function lol() {
+  window.scrollTo(0, 500);
+}
+    </script>
+  </body>
+</html>
